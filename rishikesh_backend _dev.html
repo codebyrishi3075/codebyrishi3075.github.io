@@ -235,6 +235,25 @@
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
+    .btn-cv {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      border: 2px solid var(--accent2);
+      color: var(--accent2);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-cv:hover {
+      background: var(--accent2);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(124,58,237,0.35);
+    }
+
     .hero-stats {
       display: flex; gap: 3rem; margin-top: 4rem;
       animation: fadeUp 0.7s 0.5s ease both;
@@ -548,14 +567,33 @@
 
     /* ---- MOBILE ---- */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
+      nav { padding: 1rem 1.2rem; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      #home, #about, #skills, #experience, #projects, #education, #contact { padding: 5rem 1.5rem 3rem; }
-      footer { padding: 1.5rem; }
+
+      #home { padding: 6rem 1.2rem 3rem; min-height: auto; }
+      #about, #skills, #experience, #projects, #education, #contact { padding: 4rem 1.2rem; }
+      footer { padding: 1.5rem 1.2rem; text-align: center; justify-content: center; }
+
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-      h1.name { letter-spacing: -2px; }
+      .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
+      h1.name { letter-spacing: -1px; }
+
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-outline, .btn-cv { width: 100%; justify-content: center; }
+
+      .skill-categories { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .exp-top { flex-direction: column; gap: 0.5rem; }
+      .exp-date { align-self: flex-start; }
+
+      .edu-card { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+
+      .contact-cards { flex-direction: column; align-items: stretch; }
+      .contact-card { justify-content: center; }
+
+      .section-title { letter-spacing: -1px; }
 
       .mobile-nav {
         display: flex; flex-direction: column; gap: 0;
@@ -578,6 +616,23 @@
         position: absolute; top: 1.5rem; right: 1.5rem;
         font-size: 2rem; cursor: pointer; background: none; border: none; color: var(--text);
       }
+    }
+
+    @media (max-width: 480px) {
+      h1.name { font-size: 2.8rem; letter-spacing: -1px; }
+      .stat-num { font-size: 1.5rem; }
+      .hero-tag { font-size: 0.68rem; }
+      .about-card { padding: 1.5rem; }
+      .exp-card { padding: 1.5rem; }
+      .project-card { padding: 1.5rem; }
+      .skill-cat { padding: 1.5rem; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      nav { padding: 1rem 2rem; }
+      #home, #about, #skills, #experience, #projects, #education, #contact { padding: 5rem 2.5rem; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .skill-categories { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -631,6 +686,7 @@
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="RishikeshKumarCV.pdf" download="Rishikesh_Kumar_CV.pdf" class="btn-cv">⬇ Download CV</a>
         <a href="#contact" class="btn-outline">Get In Touch</a>
         <a href="https://github.com/codebyrishi3075" target="_blank" class="btn-outline">GitHub ↗</a>
       </div>
@@ -669,7 +725,7 @@
         <div class="about-card-title">// personal info</div>
         <div class="info-row"><span class="info-label">Location</span><span class="info-val">Kolkata, WB, India</span></div>
         <div class="info-row"><span class="info-label">Phone</span><span class="info-val">+91 6290712466</span></div>
-        <div class="info-row"><span class="info-label">Email</span><span class="info-val" style="font-size:0.8rem">rishikeshkumarssm55@gmail.com</span></div>
+        <div class="info-row"><span class="info-label">Email</span><span class="info-val" style="font-size:0.8rem"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f2e9f3e8e9ebe5f3e8ebf5ede1f2f3f3edb5b5c0e7ede1e9ecaee3efed">[email&#160;protected]</a></span></div>
         <div class="info-row"><span class="info-label">Focus</span><span class="info-val">Backend Development</span></div>
         <div class="info-row"><span class="info-label">Stack</span><span class="info-val">Python · Django · DRF</span></div>
         <div class="info-row"><span class="info-label">Certification</span><span class="info-val">Python Django Certified</span></div>
@@ -878,8 +934,8 @@
         Looking for a dedicated Django Backend Developer? I'm actively seeking new opportunities. Whether it's a startup, a growing product, or a freelance project — let's build something great together.
       </p>
       <div class="contact-cards reveal">
-        <a href="mailto:rishikeshkumarssm55@gmail.com" class="contact-card">
-          <span class="icon">📧</span> rishikeshkumarssm55@gmail.com
+        <a href="/cdn-cgi/l/email-protection#63110a100b0a0806100b08160e021110100e565623040e020a0f4d000c0e" class="contact-card">
+          <span class="icon">📧</span> <span class="__cf_email__" data-cfemail="2f5d465c4746444a5c47445a424e5d5c5c421a1a6f48424e4643014c4042">[email&#160;protected]</span>
         </a>
         <a href="tel:+916290712466" class="contact-card">
           <span class="icon">📞</span> +91 6290712466
@@ -900,7 +956,7 @@
     <span>Built with ❤️ · Python Django Developer</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Dark / Light toggle
     const html = document.documentElement;
     const btn = document.getElementById('themeBtn');
@@ -930,16 +986,4 @@
 
     // Active nav link highlight
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
-      });
-    });
-  </script>
-</body>
-</html>
+    const
