@@ -2,92 +2,113 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rishikesh Kumar | Python Django Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root[data-theme="dark"] {
       --bg: #0a0a0f;
       --bg2: #111118;
       --bg3: #1a1a26;
       --accent: #00e5ff;
-      --accent2: #7c3aed;
+      --accent2: #22c55e;
       --text: #e8e8f0;
-      --muted: #8888aa;
-      --border: rgba(0,229,255,0.15);
-      --card: rgba(255,255,255,0.04);
-      --glow: 0 0 40px rgba(0,229,255,0.12);
+      --muted: #8c93a8;
+      --border: rgba(0, 229, 255, 0.15);
+      --card: rgba(255, 255, 255, 0.04);
+      --glow: 0 0 40px rgba(0, 229, 255, 0.12);
     }
+
     :root[data-theme="light"] {
-      --bg: #f4f4ff;
+      --bg: #f4f7fb;
       --bg2: #ffffff;
-      --bg3: #eaeaf8;
+      --bg3: #eef3f8;
       --accent: #0070f3;
-      --accent2: #7c3aed;
-      --text: #111122;
-      --muted: #555577;
-      --border: rgba(0,112,243,0.2);
-      --card: rgba(0,0,0,0.04);
-      --glow: 0 0 40px rgba(0,112,243,0.08);
+      --accent2: #0f9d58;
+      --text: #111827;
+      --muted: #5b6476;
+      --border: rgba(0, 112, 243, 0.16);
+      --card: rgba(0, 0, 0, 0.04);
+      --glow: 0 0 40px rgba(0, 112, 243, 0.08);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'Syne', sans-serif;
+      font-family: "Syne", sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
       transition: background 0.4s, color 0.4s;
     }
 
-    /* ---- NOISE TEXTURE ---- */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
-    /* ---- GRID BG ---- */
     .grid-bg {
       position: fixed;
       inset: 0;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* ---- NAV ---- */
+    a {
+      color: inherit;
+    }
+
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1.2rem 4rem;
-      background: rgba(10,10,15,0.85);
+      background: rgba(10, 10, 15, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      transition: background 0.4s;
     }
-    [data-theme="light"] nav { background: rgba(244,244,255,0.85); }
+
+    [data-theme="light"] nav {
+      background: rgba(244, 247, 251, 0.9);
+    }
 
     .nav-logo {
-      font-family: 'Space Mono', monospace;
+      font-family: "Space Mono", monospace;
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--accent);
-      letter-spacing: -1px;
     }
-    .nav-logo span { color: var(--text); }
 
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-logo span {
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -97,66 +118,101 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
 
-    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
     .theme-btn {
       background: var(--card);
       border: 1px solid var(--border);
       color: var(--text);
-      width: 38px; height: 38px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ---- HAMBURGER ---- */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; display: block; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
 
-    /* ---- SECTIONS ---- */
-    section { position: relative; z-index: 1; }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      display: block;
+    }
 
-    /* ---- HERO ---- */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
     #home {
       min-height: 100vh;
-      display: flex; align-items: center;
+      display: flex;
+      align-items: center;
       padding: 8rem 4rem 4rem;
       position: relative;
     }
 
-    .hero-blob {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%);
-      top: 10%; right: -5%;
-      pointer-events: none;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
+    .hero-blob,
     .hero-blob2 {
       position: absolute;
-      width: 400px; height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
-      bottom: 10%; left: -5%;
       pointer-events: none;
+    }
+
+    .hero-blob {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+      top: 10%;
+      right: -5%;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+
+    .hero-blob2 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.09) 0%, transparent 70%);
+      bottom: 10%;
+      left: -5%;
       animation: blobFloat 10s ease-in-out infinite reverse;
     }
+
     @keyframes blobFloat {
-      0%, 100% { transform: translate(0,0) scale(1); }
+      0%, 100% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(20px, -30px) scale(1.05); }
     }
 
-    .hero-content { max-width: 750px; }
+    .hero-content {
+      max-width: 820px;
+    }
 
     .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Space Mono', monospace;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Space Mono", monospace;
       font-size: 0.75rem;
       color: var(--accent);
       border: 1px solid var(--border);
@@ -165,16 +221,13 @@
       margin-bottom: 2rem;
       animation: fadeUp 0.6s ease both;
     }
+
     .hero-tag::before {
-      content: '';
-      width: 6px; height: 6px;
+      content: "";
+      width: 6px;
+      height: 6px;
       background: var(--accent);
       border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
     }
 
     h1.name {
@@ -184,245 +237,356 @@
       letter-spacing: -3px;
       animation: fadeUp 0.7s 0.1s ease both;
     }
-    h1.name .line2 { color: var(--accent); display: block; }
+
+    h1.name .line2 {
+      color: var(--accent);
+      display: block;
+    }
 
     .hero-role {
-      font-family: 'Space Mono', monospace;
+      font-family: "Space Mono", monospace;
       font-size: 1rem;
       color: var(--muted);
       margin: 1.5rem 0 2rem;
       animation: fadeUp 0.7s 0.2s ease both;
     }
-    .hero-role span { color: var(--accent2); }
+
+    .hero-role span {
+      color: var(--accent2);
+    }
 
     .hero-desc {
       font-size: 1.05rem;
       line-height: 1.8;
       color: var(--muted);
-      max-width: 560px;
+      max-width: 680px;
       margin-bottom: 3rem;
       animation: fadeUp 0.7s 0.3s ease both;
     }
 
     .hero-btns {
-      display: flex; gap: 1rem; flex-wrap: wrap;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
       animation: fadeUp 0.7s 0.4s ease both;
     }
+
+    .btn-primary,
+    .btn-outline,
+    .btn-cv {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
       background: var(--accent);
       color: #000;
-      padding: 14px 28px;
-      border-radius: 8px;
       font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-      letter-spacing: 0.5px;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,229,255,0.3); }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 229, 255, 0.3);
+    }
 
     .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 14px 28px;
-      border-radius: 8px;
       font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
     }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
 
     .btn-cv {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent;
       border: 2px solid var(--accent2);
       color: var(--accent2);
-      padding: 12px 28px;
-      border-radius: 8px;
       font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
     }
+
     .btn-cv:hover {
       background: var(--accent2);
       color: #fff;
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(124,58,237,0.35);
+      box-shadow: 0 8px 30px rgba(34, 197, 94, 0.22);
     }
 
     .hero-stats {
-      display: flex; gap: 3rem; margin-top: 4rem;
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
       animation: fadeUp 0.7s 0.5s ease both;
+      flex-wrap: wrap;
     }
-    .stat { text-align: left; }
+
     .stat-num {
-      font-size: 2rem; font-weight: 800;
+      font-size: 2rem;
+      font-weight: 800;
       color: var(--accent);
-      font-family: 'Space Mono', monospace;
+      font-family: "Space Mono", monospace;
     }
-    .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---- SECTION HEADERS ---- */
     .section-header {
-      text-align: center; margin-bottom: 4rem;
+      text-align: center;
+      margin-bottom: 4rem;
     }
+
     .section-tag {
-      font-family: 'Space Mono', monospace;
+      font-family: "Space Mono", monospace;
       font-size: 0.7rem;
       color: var(--accent);
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
+
     .section-title {
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 800;
       letter-spacing: -2px;
     }
+
     .section-line {
-      width: 60px; height: 3px;
+      width: 60px;
+      height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       margin: 1rem auto 0;
       border-radius: 2px;
     }
 
-    /* ---- ABOUT ---- */
-    #about {
+    #about,
+    #experience,
+    #education {
       padding: 6rem 4rem;
       background: var(--bg2);
     }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-      max-width: 1100px; margin: 0 auto;
+
+    #skills,
+    #projects,
+    #contact {
+      padding: 6rem 4rem;
     }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .about-text p {
       color: var(--muted);
       line-height: 1.9;
       font-size: 1rem;
       margin-bottom: 1.2rem;
     }
-    .about-text p strong { color: var(--text); }
 
-    .about-card {
+    .about-text p strong {
+      color: var(--text);
+    }
+
+    .about-card,
+    .skill-cat,
+    .exp-card,
+    .project-card,
+    .edu-card,
+    .contact-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
+    }
+
+    .about-card {
       padding: 2.5rem;
       position: relative;
       overflow: hidden;
     }
-    .about-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+
+    .about-card::before,
+    .exp-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
     }
+
     .about-card-title {
-      font-family: 'Space Mono', monospace;
+      font-family: "Space Mono", monospace;
       font-size: 0.7rem;
       color: var(--accent);
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
+
     .info-row {
-      display: flex; justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
       padding: 0.8rem 0;
       border-bottom: 1px solid var(--border);
       font-size: 0.9rem;
     }
-    .info-row:last-child { border-bottom: none; }
-    .info-label { color: var(--muted); }
-    .info-val { color: var(--text); font-weight: 600; }
 
-    /* ---- SKILLS ---- */
-    #skills { padding: 6rem 4rem; }
+    .info-row:last-child {
+      border-bottom: none;
+    }
 
-    .skills-wrap { max-width: 1100px; margin: 0 auto; }
+    .info-label {
+      color: var(--muted);
+    }
+
+    .info-val {
+      color: var(--text);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .skills-wrap,
+    .exp-wrap,
+    .edu-wrap,
+    .contact-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
     .skill-categories {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
+
     .skill-cat {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
       padding: 2rem;
       transition: all 0.3s;
-      position: relative; overflow: hidden;
     }
-    .skill-cat:hover {
+
+    .skill-cat:hover,
+    .exp-card:hover,
+    .project-card:hover,
+    .edu-card:hover,
+    .contact-card:hover {
       border-color: var(--accent);
-      transform: translateY(-4px);
       box-shadow: var(--glow);
+      transform: translateY(-4px);
     }
+
     .skill-cat-icon {
-      font-size: 2rem; margin-bottom: 1rem;
+      font-family: "Space Mono", monospace;
+      font-size: 1.3rem;
+      color: var(--accent2);
+      margin-bottom: 1rem;
     }
+
     .skill-cat-name {
-      font-weight: 700; font-size: 1rem;
-      margin-bottom: 1rem; color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text);
     }
-    .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-    .pill {
-      font-family: 'Space Mono', monospace;
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill,
+    .tag {
+      font-family: "Space Mono", monospace;
       font-size: 0.72rem;
       padding: 5px 12px;
       border-radius: 100px;
       background: var(--bg3);
       border: 1px solid var(--border);
       color: var(--muted);
-      transition: all 0.2s;
     }
-    .pill:hover, .pill.hot { border-color: var(--accent); color: var(--accent); }
-    .pill.hot2 { border-color: var(--accent2); color: var(--accent2); }
 
-    /* ---- EXPERIENCE ---- */
-    #experience {
-      padding: 6rem 4rem;
-      background: var(--bg2);
+    .pill.hot,
+    .pill:hover {
+      color: var(--accent);
+      border-color: var(--accent);
     }
-    .exp-wrap { max-width: 800px; margin: 0 auto; }
+
+    .pill.hot2 {
+      color: var(--accent2);
+      border-color: rgba(34, 197, 94, 0.35);
+    }
+
+    .exp-wrap {
+      max-width: 860px;
+    }
+
     .exp-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
       padding: 2.5rem;
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
       transition: all 0.3s;
     }
-    .exp-card:hover { border-color: var(--accent); box-shadow: var(--glow); }
-    .exp-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
+
     .exp-top {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      flex-wrap: wrap; gap: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
       margin-bottom: 1.5rem;
     }
-    .exp-company { font-size: 1.2rem; font-weight: 800; color: var(--text); }
-    .exp-role { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-top: 4px; }
+
+    .exp-company {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .exp-role {
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
     .exp-date {
-      font-family: 'Space Mono', monospace;
+      font-family: "Space Mono", monospace;
       font-size: 0.75rem;
       color: var(--muted);
       border: 1px solid var(--border);
       padding: 4px 12px;
       border-radius: 100px;
     }
-    .exp-list { list-style: none; }
+
+    .exp-list {
+      list-style: none;
+    }
+
     .exp-list li {
       color: var(--muted);
       font-size: 0.95rem;
@@ -431,217 +595,319 @@
       position: relative;
       border-bottom: 1px solid var(--border);
     }
-    .exp-list li:last-child { border-bottom: none; }
+
+    .exp-list li:last-child {
+      border-bottom: none;
+    }
+
     .exp-list li::before {
-      content: '→';
-      position: absolute; left: 0;
+      content: ">";
+      position: absolute;
+      left: 0;
       color: var(--accent);
+      font-family: "Space Mono", monospace;
     }
 
-    /* ---- PROJECTS ---- */
-    #projects { padding: 6rem 4rem; }
     .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s;
-      display: flex; flex-direction: column;
-      position: relative; overflow: hidden;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: var(--glow);
-    }
-    .project-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, rgba(0,229,255,0.03) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .project-icon {
-      font-size: 2.5rem; margin-bottom: 1rem;
-    }
-    .project-name {
-      font-size: 1.1rem; font-weight: 800;
-      margin-bottom: 0.8rem; color: var(--text);
-    }
-    .project-desc {
-      color: var(--muted); font-size: 0.9rem; line-height: 1.7;
-      flex: 1; margin-bottom: 1.5rem;
-    }
-    .project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      padding: 3px 10px;
-      border-radius: 100px;
-      background: rgba(0,229,255,0.08);
-      color: var(--accent);
-      border: 1px solid rgba(0,229,255,0.2);
-    }
-    .project-link {
-      color: var(--accent); text-decoration: none;
-      font-size: 1.2rem;
-      transition: transform 0.2s;
-      display: inline-block;
-    }
-    .project-link:hover { transform: translate(3px, -3px); }
 
-    /* ---- EDUCATION ---- */
-    #education {
-      padding: 6rem 4rem;
-      background: var(--bg2);
-    }
-    .edu-wrap { max-width: 800px; margin: 0 auto; }
-    .edu-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
-      display: flex; gap: 2rem; align-items: flex-start;
+    .project-card {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
       transition: all 0.3s;
     }
-    .edu-card:hover { border-color: var(--accent); }
+
+    .project-icon {
+      font-family: "Space Mono", monospace;
+      font-size: 1.4rem;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+    }
+
+    .project-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      color: var(--accent);
+      border-color: rgba(0, 229, 255, 0.2);
+      background: rgba(0, 229, 255, 0.08);
+    }
+
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: "Space Mono", monospace;
+    }
+
+    .edu-wrap {
+      max-width: 860px;
+    }
+
+    .edu-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      padding: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      transition: all 0.3s;
+    }
+
     .edu-icon {
-      width: 56px; height: 56px;
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Space Mono", monospace;
+      font-size: 1rem;
+      color: #001018;
+      flex-shrink: 0;
+      font-weight: 700;
     }
-    .edu-degree { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
-    .edu-school { color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.8rem; margin-bottom: 8px; }
-    .edu-year { color: var(--muted); font-size: 0.85rem; }
-    .edu-marks { margin-top: 8px; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--muted); }
 
-    /* ---- CONTACT ---- */
-    #contact { padding: 6rem 4rem; text-align: center; }
-    .contact-wrap { max-width: 700px; margin: 0 auto; }
+    .edu-degree {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      color: var(--accent);
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
+    .edu-year,
+    .edu-marks {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .contact-wrap {
+      max-width: 760px;
+      text-align: center;
+    }
+
     .contact-desc {
-      color: var(--muted); font-size: 1rem; line-height: 1.8;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
       margin-bottom: 3rem;
     }
-    .contact-cards {
-      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
-      margin-bottom: 3rem;
-    }
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem 2rem;
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none; color: var(--text);
-      transition: all 0.2s;
-      font-size: 0.9rem;
-    }
-    .contact-card:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-    .contact-card .icon { font-size: 1.2rem; }
 
-    /* ---- FOOTER ---- */
+    .contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .contact-card {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .contact-card .icon {
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
     footer {
       background: var(--bg2);
       border-top: 1px solid var(--border);
       padding: 2rem 4rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-      font-family: 'Space Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-family: "Space Mono", monospace;
       font-size: 0.75rem;
       color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
-    /* ---- SCROLL REVEAL ---- */
     .reveal {
-      opacity: 0; transform: translateY(30px);
+      opacity: 0;
+      transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ---- MOBILE ---- */
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.2rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav {
+        padding: 1rem 1.2rem;
+      }
 
-      #home { padding: 6rem 1.2rem 3rem; min-height: auto; }
-      #about, #skills, #experience, #projects, #education, #contact { padding: 4rem 1.2rem; }
-      footer { padding: 1.5rem 1.2rem; text-align: center; justify-content: center; }
+      .nav-links {
+        display: none;
+      }
 
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
-      h1.name { letter-spacing: -1px; }
-
-      .hero-btns { flex-direction: column; align-items: flex-start; }
-      .btn-primary, .btn-outline, .btn-cv { width: 100%; justify-content: center; }
-
-      .skill-categories { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-
-      .exp-top { flex-direction: column; gap: 0.5rem; }
-      .exp-date { align-self: flex-start; }
-
-      .edu-card { flex-direction: column; gap: 1rem; padding: 1.5rem; }
-
-      .contact-cards { flex-direction: column; align-items: stretch; }
-      .contact-card { justify-content: center; }
-
-      .section-title { letter-spacing: -1px; }
+      .hamburger {
+        display: flex;
+      }
 
       .mobile-nav {
-        display: flex; flex-direction: column; gap: 0;
-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        inset: 0;
         background: var(--bg);
         z-index: 200;
-        justify-content: center; align-items: center;
+        justify-content: center;
+        align-items: center;
         transform: translateX(100%);
         transition: transform 0.3s ease;
       }
-      .mobile-nav.open { transform: translateX(0); }
+
+      .mobile-nav.open {
+        transform: translateX(0);
+      }
+
       .mobile-nav a {
-        color: var(--text); text-decoration: none;
-        font-size: 1.8rem; font-weight: 800;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: 800;
         padding: 1rem 0;
-        transition: color 0.2s;
       }
-      .mobile-nav a:hover { color: var(--accent); }
+
       .mobile-close {
-        position: absolute; top: 1.5rem; right: 1.5rem;
-        font-size: 2rem; cursor: pointer; background: none; border: none; color: var(--text);
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--text);
       }
-    }
 
-    @media (max-width: 480px) {
-      h1.name { font-size: 2.8rem; letter-spacing: -1px; }
-      .stat-num { font-size: 1.5rem; }
-      .hero-tag { font-size: 0.68rem; }
-      .about-card { padding: 1.5rem; }
-      .exp-card { padding: 1.5rem; }
-      .project-card { padding: 1.5rem; }
-      .skill-cat { padding: 1.5rem; }
-    }
+      #home,
+      #about,
+      #skills,
+      #experience,
+      #projects,
+      #education,
+      #contact {
+        padding: 5.5rem 1.2rem 3.5rem;
+      }
 
-    @media (min-width: 769px) and (max-width: 1024px) {
-      nav { padding: 1rem 2rem; }
-      #home, #about, #skills, #experience, #projects, #education, #contact { padding: 5rem 2.5rem; }
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-      .skill-categories { grid-template-columns: repeat(2, 1fr); }
+      #home {
+        min-height: auto;
+      }
+
+      .about-grid,
+      .skill-categories,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-outline,
+      .btn-cv {
+        width: 100%;
+      }
+
+      .about-card,
+      .exp-card,
+      .project-card,
+      .skill-cat,
+      .edu-card {
+        padding: 1.5rem;
+      }
+
+      .exp-top,
+      .edu-card,
+      .info-row,
+      footer {
+        flex-direction: column;
+      }
+
+      .info-val {
+        text-align: left;
+      }
+
+      .contact-cards {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-card {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="grid-bg"></div>
 
-  <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+    <button class="mobile-close" onclick="closeMobileNav()">X</button>
     <a href="#home" onclick="closeMobileNav()">Home</a>
     <a href="#about" onclick="closeMobileNav()">About</a>
     <a href="#skills" onclick="closeMobileNav()">Skills</a>
@@ -651,7 +917,6 @@
     <a href="#contact" onclick="closeMobileNav()">Contact</a>
   </div>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">RK<span>.</span></div>
     <ul class="nav-links">
@@ -664,149 +929,144 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
-      <button class="hamburger" onclick="openMobileNav()">
+      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">Moon</button>
+      <button class="hamburger" onclick="openMobileNav()" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section id="home">
     <div class="hero-blob"></div>
     <div class="hero-blob2"></div>
     <div class="hero-content">
-      <div class="hero-tag">Available for new opportunities</div>
+      <div class="hero-tag">Python and Django Developer</div>
       <h1 class="name">Rishikesh<span class="line2">Kumar</span></h1>
-      <p class="hero-role">
-        Python & <span>Django Backend Developer</span> · Kolkata, India
-      </p>
+      <p class="hero-role">Python and <span>Django Backend Developer</span> | Kolkata, India</p>
       <p class="hero-desc">
-        Building scalable, secure backend systems and RESTful APIs with Django. Passionate about clean architecture, performance optimization, and turning complex problems into elegant solutions.
+        Building healthcare-focused backend systems, workflow-heavy APIs, and production-ready Django services. My work currently spans authentication, bookings, diagnostics, pharmacy, wallet and payment flows, notifications, and async platform operations.
       </p>
       <div class="hero-btns">
-        <a href="#projects" class="btn-primary">View Projects →</a>
-        <a href="RishikeshKumarCV.pdf" download="Rishikesh_Kumar_CV.pdf" class="btn-cv">⬇ Download CV</a>
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="RishikeshKumarCV.pdf" download="Rishikesh_Kumar_CV.pdf" class="btn-cv">Download CV</a>
         <a href="#contact" class="btn-outline">Get In Touch</a>
-        <a href="https://github.com/codebyrishi3075" target="_blank" class="btn-outline">GitHub ↗</a>
+        <a href="https://github.com/codebyrishi3075" target="_blank" rel="noreferrer" class="btn-outline">GitHub Profile</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num">4+</div>
-          <div class="stat-label">Projects Built</div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Healthcare Modules</div>
         </div>
         <div class="stat">
-          <div class="stat-num">1+</div>
-          <div class="stat-label">Year Experience</div>
+          <div class="stat-num">2026</div>
+          <div class="stat-label">Current Industry Work</div>
         </div>
         <div class="stat">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Languages</div>
+          <div class="stat-num">DRF</div>
+          <div class="stat-label">API First Focus</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-header reveal">
-      <div class="section-tag">// who am i</div>
+      <div class="section-tag">// who i am</div>
       <h2 class="section-title">About Me</h2>
       <div class="section-line"></div>
     </div>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>I'm a <strong>Python & Django Backend Developer</strong> based in Kolkata, India. I specialize in building robust, scalable web applications and RESTful APIs that power real-world products.</p>
-        <p>My journey started with a Physics degree and evolved into a deep passion for software engineering. I love architecting backend systems using <strong>Django REST Framework</strong>, implementing JWT authentication, and optimizing database queries for high-performance applications.</p>
-        <p>I believe in <strong>clean, maintainable code</strong> — writing systems that are not just functional, but elegant. I'm always pushing my limits with new technologies and design patterns.</p>
-        <p>Currently seeking a <strong>growth-driven role</strong> where I can build impactful backend systems and level up my skills in system design and architecture.</p>
+        <p>I'm a <strong>Python and Django Backend Developer</strong> based in Kolkata, India, currently working on a live healthcare platform for <strong>Famunite Health & Lifestyle Private Limited</strong>.</p>
+        <p>My work focuses on building and maintaining backend systems with <strong>Django REST Framework</strong>, role-based authentication, booking lifecycles, business validations, wallet and payment workflows, and operational APIs used across real healthcare processes.</p>
+        <p>I enjoy writing <strong>clean, maintainable backend code</strong> that supports production use cases such as patient onboarding, doctor consultations, diagnostics, medicine ordering, notifications, memberships, and admin workflows.</p>
+        <p>I am continuing to grow as a backend engineer by working on scalable architecture, async processing with Celery and Redis, real-time updates, and third-party integrations in business-critical systems.</p>
       </div>
       <div class="about-card">
         <div class="about-card-title">// personal info</div>
         <div class="info-row"><span class="info-label">Location</span><span class="info-val">Kolkata, WB, India</span></div>
-        <div class="info-row"><span class="info-label">Phone</span><span class="info-val">+91 6290712466</span></div>
-        <div class="info-row"><span class="info-label">Email</span><span class="info-val" style="font-size:0.8rem"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f2e9f3e8e9ebe5f3e8ebf5ede1f2f3f3edb5b5c0e7ede1e9ecaee3efed">[email&#160;protected]</a></span></div>
-        <div class="info-row"><span class="info-label">Focus</span><span class="info-val">Backend Development</span></div>
-        <div class="info-row"><span class="info-label">Stack</span><span class="info-val">Python · Django · DRF</span></div>
-        <div class="info-row"><span class="info-label">Certification</span><span class="info-val">Python Django Certified</span></div>
-        <div class="info-row"><span class="info-label">Status</span><span class="info-val" style="color: var(--accent)">● Open to Work</span></div>
+        <div class="info-row"><span class="info-label">Phone</span><span class="info-val">+91 6290712466 / +91 8583942422</span></div>
+        <div class="info-row"><span class="info-label">Email</span><span class="info-val"><a href="mailto:codebyrishi555@gmail.com">codebyrishi555@gmail.com</a></span></div>
+        <div class="info-row"><span class="info-label">Current Company</span><span class="info-val">Famunite Health & Lifestyle Pvt. Ltd.</span></div>
+        <div class="info-row"><span class="info-label">Started</span><span class="info-val">March 2026</span></div>
+        <div class="info-row"><span class="info-label">Stack</span><span class="info-val">Python, Django, DRF, PostgreSQL, Celery, Redis</span></div>
+        <div class="info-row"><span class="info-label">Website</span><span class="info-val"><a href="https://www.famunitehealthcare.com" target="_blank" rel="noreferrer">www.famunitehealthcare.com</a></span></div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="skills-wrap">
       <div class="section-header reveal">
         <div class="section-tag">// what i work with</div>
-        <h2 class="section-title">Skills & Tools</h2>
+        <h2 class="section-title">Skills and Tools</h2>
         <div class="section-line"></div>
       </div>
       <div class="skill-categories reveal">
         <div class="skill-cat">
-          <div class="skill-cat-icon">🐍</div>
+          <div class="skill-cat-icon">BE</div>
           <div class="skill-cat-name">Backend Core</div>
           <div class="skill-pills">
             <span class="pill hot">Python</span>
             <span class="pill hot">Django</span>
             <span class="pill hot">Django REST Framework</span>
-            <span class="pill">C Language</span>
+            <span class="pill">Django Channels</span>
           </div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-icon">🔌</div>
-          <div class="skill-cat-name">APIs & Auth</div>
+          <div class="skill-cat-icon">AU</div>
+          <div class="skill-cat-name">APIs and Authentication</div>
           <div class="skill-pills">
-            <span class="pill hot">RESTful APIs</span>
+            <span class="pill hot">REST APIs</span>
             <span class="pill hot">JWT Auth</span>
-            <span class="pill">Session Handling</span>
-            <span class="pill">AJAX</span>
+            <span class="pill">OTP Verification</span>
+            <span class="pill">Role-Based Access</span>
           </div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-icon">🗄️</div>
-          <div class="skill-cat-name">Database & Tools</div>
+          <div class="skill-cat-icon">DB</div>
+          <div class="skill-cat-name">Database and Tools</div>
           <div class="skill-pills">
-            <span class="pill hot">SQLite</span>
-            <span class="pill">PostgreSQL</span>
-            <span class="pill hot2">Git & GitHub</span>
-            <span class="pill">Bootstrap 5</span>
+            <span class="pill hot">PostgreSQL</span>
+            <span class="pill">MySQL</span>
+            <span class="pill hot2">Git and GitHub</span>
+            <span class="pill">Postman</span>
           </div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-icon">🌐</div>
-          <div class="skill-cat-name">Frontend Basics</div>
+          <div class="skill-cat-icon">AS</div>
+          <div class="skill-cat-name">Async and Realtime</div>
           <div class="skill-pills">
-            <span class="pill">HTML</span>
-            <span class="pill">JavaScript</span>
-            <span class="pill">Bootstrap</span>
-            <span class="pill">Responsive UI</span>
+            <span class="pill">Celery</span>
+            <span class="pill">Redis</span>
+            <span class="pill">WebSockets</span>
+            <span class="pill">Background Jobs</span>
           </div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-icon">🧠</div>
-          <div class="skill-cat-name">Soft Skills</div>
+          <div class="skill-cat-icon">IN</div>
+          <div class="skill-cat-name">Integrations</div>
           <div class="skill-pills">
-            <span class="pill hot2">Problem Solving</span>
-            <span class="pill">Client Relations</span>
-            <span class="pill">Creative Thinking</span>
-            <span class="pill">Team Work</span>
+            <span class="pill hot2">Razorpay</span>
+            <span class="pill">Firebase FCM</span>
+            <span class="pill">Google Services</span>
+            <span class="pill">Telephony Workflows</span>
           </div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-icon">🌍</div>
-          <div class="skill-cat-name">Languages</div>
+          <div class="skill-cat-icon">WK</div>
+          <div class="skill-cat-name">Workflow Areas</div>
           <div class="skill-pills">
-            <span class="pill hot">Hindi — Native</span>
-            <span class="pill">English — B2</span>
-            <span class="pill">Bengali — B2</span>
+            <span class="pill hot">Consultations</span>
+            <span class="pill">Diagnostics</span>
+            <span class="pill">Pharmacy</span>
+            <span class="pill">Memberships</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="exp-wrap">
       <div class="section-header reveal">
@@ -817,81 +1077,79 @@
       <div class="exp-card reveal">
         <div class="exp-top">
           <div>
-            <div class="exp-company">Webskitters Technology Solutions Pvt. Ltd.</div>
-            <div class="exp-role">Django Backend Developer</div>
+            <div class="exp-company">Famunite Health & Lifestyle Private Limited</div>
+            <div class="exp-role">Python and Django Developer</div>
           </div>
-          <div class="exp-date">Jan 2026 – Mar 2026</div>
+          <div class="exp-date">March 2026 - Present</div>
         </div>
         <ul class="exp-list">
-          <li>Implemented RESTful APIs to facilitate seamless communication between frontend and backend components, significantly boosting application functionality.</li>
-          <li>Developed and maintained scalable backend systems for high-volume web applications, improving overall system efficiency and reliability.</li>
-          <li>Architected secure backend systems using latest security practices, safeguarding sensitive data and user information.</li>
+          <li>Working on a modular Django and Django REST Framework healthcare backend that supports patient accounts, family profiles, doctor consultations, diagnostics, medicine ordering, memberships, wallets, and notifications.</li>
+          <li>Implemented and maintained authentication workflows using OTP verification, JWT login, Google sign-in, and role-based access control across patient, staff, technician, and admin use cases.</li>
+          <li>Contributed to booking, payment, cashback, refund, and lifecycle flows for doctor, lab, physiotherapy, eyecare, and medicine-order workflows.</li>
+          <li>Used Celery, Redis, and Channels for reminders, expiries, stock alerts, and real-time operational updates within healthcare processes.</li>
+          <li>Worked with integrations such as Razorpay, Firebase Cloud Messaging, Google services, and telephony-related workflows to support production features.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header reveal">
       <div class="section-tag">// what i've built</div>
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">Project Highlights</h2>
       <div class="section-line"></div>
     </div>
     <div class="projects-grid reveal">
-
       <div class="project-card">
-        <div class="project-icon">💰</div>
-        <div class="project-name">Expense Tracker API (DRF)</div>
-        <div class="project-desc">Full-featured Django REST API with JWT auth, expense management, budget categories, monthly tracking, pagination, and financial dashboard analytics.</div>
+        <div class="project-icon">HC</div>
+        <div class="project-name">Famunite Healthcare Platform Backend</div>
+        <div class="project-desc">Contributing to a production-style healthcare backend with modular Django apps for accounts, consultations, diagnostics, medicine ordering, memberships, notifications, reports, and center-assisted workflows.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">JWT</span><span class="tag">REST API</span>
+            <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">Healthcare</span>
           </div>
-          <a href="https://github.com/codebyrishi3075/SDLC-Group-Project-Expense-Tracked-API-USING-DRF" target="_blank" class="project-link">↗</a>
+          <a href="https://www.famunitehealthcare.com" target="_blank" rel="noreferrer" class="project-link">Visit Site</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">🛒</div>
-        <div class="project-name">Cart Management Django</div>
-        <div class="project-desc">Shopping cart web application demonstrating session handling, database usage, and dynamic interactions using AJAX for real-time cart updates without page reload.</div>
+        <div class="project-icon">BK</div>
+        <div class="project-name">Consultation and Diagnostics Workflows</div>
+        <div class="project-desc">Worked on role-based booking and status-management flows for doctor consultations, lab bookings, physiotherapy, and eyecare services, including slot handling, prescriptions, reports, and operational coordination.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Django</span><span class="tag">AJAX</span><span class="tag">SQLite</span><span class="tag">Python</span>
+            <span class="tag">Bookings</span><span class="tag">Doctors</span><span class="tag">Lab</span><span class="tag">Reports</span>
           </div>
-          <a href="https://github.com/codebyrishi3075/CartManagement-Django" target="_blank" class="project-link">↗</a>
+          <a href="#experience" class="project-link">See Experience</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">👨‍🎓</div>
-        <div class="project-name">Student Profile Management</div>
-        <div class="project-desc">Django system for managing student profiles with AJAX-enhanced UI, email validation, profile image uploads, and responsive Bootstrap interface.</div>
+        <div class="project-icon">WP</div>
+        <div class="project-name">Wallet, Payments and Membership Logic</div>
+        <div class="project-desc">Built and supported wallet usage rules, cashback, refunds, payment ledgers, membership purchase and upgrade flows, and webhook-based Razorpay verification around real customer journeys.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Django</span><span class="tag">AJAX</span><span class="tag">Bootstrap</span><span class="tag">SQLite</span>
+            <span class="tag">Wallet</span><span class="tag">Payments</span><span class="tag">Razorpay</span><span class="tag">Memberships</span>
           </div>
-          <a href="https://github.com/codebyrishi3075/student-profile-management" target="_blank" class="project-link">↗</a>
+          <a href="#contact" class="project-link">Contact Me</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">🌸</div>
-        <div class="project-name">CSV File Upload – Iris Dataset</div>
-        <div class="project-desc">Django app for uploading, storing, and browsing CSV data with drag-and-drop UI, paginated views, species-based filtering, and AJAX upload with progress feedback.</div>
+        <div class="project-icon">RT</div>
+        <div class="project-name">Notifications, Realtime and Operations Support</div>
+        <div class="project-desc">Supported async and operational healthcare workflows using Celery, Redis, Django Channels, FCM, admin tooling, report handling, stock alerts, and real-time queue-oriented updates.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Django</span><span class="tag">Bootstrap 5</span><span class="tag">AJAX</span><span class="tag">CSV</span>
+            <span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Channels</span><span class="tag">FCM</span>
           </div>
-          <a href="https://github.com/codebyrishi3075/Upload-csv-data-of-iris-dataset" target="_blank" class="project-link">↗</a>
+          <a href="https://github.com/codebyrishi3075" target="_blank" rel="noreferrer" class="project-link">GitHub</a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="edu-wrap">
       <div class="section-header reveal">
@@ -899,22 +1157,22 @@
         <h2 class="section-title">Education</h2>
         <div class="section-line"></div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+      <div class="edu-stack">
         <div class="edu-card reveal">
-          <div class="edu-icon">🎓</div>
+          <div class="edu-icon">PY</div>
           <div>
             <div class="edu-degree">Python Django Developer</div>
             <div class="edu-school">WebSkitters Academy</div>
-            <div class="edu-year">Aug 2025 – Mar 2026</div>
+            <div class="edu-year">Aug 2025 - Mar 2026</div>
             <div class="edu-marks">Certification: Python Django Certified</div>
           </div>
         </div>
         <div class="edu-card reveal">
-          <div class="edu-icon">⚗️</div>
+          <div class="edu-icon">BS</div>
           <div>
-            <div class="edu-degree">Bachelor of Science — Physics (Hons.)</div>
+            <div class="edu-degree">Bachelor of Science - Physics (Hons.)</div>
             <div class="edu-school">Veer Kunwar Singh University, Ara, Bihar</div>
-            <div class="edu-year">2019 – 2022</div>
+            <div class="edu-year">2019 - 2022</div>
             <div class="edu-marks">Total Marks: 953</div>
           </div>
         </div>
@@ -922,7 +1180,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-wrap">
       <div class="section-header reveal">
@@ -931,81 +1188,81 @@
         <div class="section-line"></div>
       </div>
       <p class="contact-desc reveal">
-        Looking for a dedicated Django Backend Developer? I'm actively seeking new opportunities. Whether it's a startup, a growing product, or a freelance project — let's build something great together.
+        Looking for a Python and Django Developer with hands-on healthcare backend experience? I am open to discussing backend roles, API-focused opportunities, and projects involving Django, DRF, async workflows, and production-grade business logic.
       </p>
       <div class="contact-cards reveal">
-        <a href="/cdn-cgi/l/email-protection#63110a100b0a0806100b08160e021110100e565623040e020a0f4d000c0e" class="contact-card">
-          <span class="icon">📧</span> <span class="__cf_email__" data-cfemail="2f5d465c4746444a5c47445a424e5d5c5c421a1a6f48424e4643014c4042">[email&#160;protected]</span>
+        <a href="mailto:codebyrishi555@gmail.com" class="contact-card">
+          <span class="icon">Email</span> codebyrishi555@gmail.com
         </a>
         <a href="tel:+916290712466" class="contact-card">
-          <span class="icon">📞</span> +91 6290712466
+          <span class="icon">Phone</span> +91 6290712466
         </a>
-        <a href="https://github.com/codebyrishi3075" target="_blank" class="contact-card">
-          <span class="icon">🐙</span> GitHub Profile
+        <a href="https://github.com/codebyrishi3075" target="_blank" rel="noreferrer" class="contact-card">
+          <span class="icon">GitHub</span> github.com/codebyrishi3075
         </a>
-        <a href="https://www.linkedin.com/in/%E2%99%A8%E2%99%A8rishikesh-kumar-%E2%99%A8%E2%99%A8-209935203/" target="_blank" class="contact-card">
-          <span class="icon">💼</span> LinkedIn Profile
+        <a href="https://www.linkedin.com/in/%E2%99%A8%E2%99%A8rishikesh-kumar-%E2%99%A8%E2%99%A8-209935203/" target="_blank" rel="noreferrer" class="contact-card">
+          <span class="icon">LinkedIn</span> linkedin.com/in/rishikesh-kumar
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span>© 2026 Rishikesh Kumar. All rights reserved.</span>
-    <span>Built with ❤️ · Python Django Developer</span>
+    <span>Copyright 2026 Rishikesh Kumar. All rights reserved.</span>
+    <span>Built for a Python and Django Developer portfolio.</span>
   </footer>
 
-
   <script>
-    // Dark / Light toggle
     const html = document.documentElement;
-    const btn = document.getElementById('themeBtn');
+    const btn = document.getElementById("themeBtn");
     let dark = true;
+
     function toggleTheme() {
       dark = !dark;
-      html.setAttribute('data-theme', dark ? 'dark' : 'light');
-      btn.textContent = dark ? '🌙' : '☀️';
+      html.setAttribute("data-theme", dark ? "dark" : "light");
+      btn.textContent = dark ? "Moon" : "Sun";
     }
 
-    // Mobile nav
     function openMobileNav() {
-      document.getElementById('mobileNav').classList.add('open');
+      document.getElementById("mobileNav").classList.add("open");
     }
+
     function closeMobileNav() {
-      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById("mobileNav").classList.remove("open");
     }
 
-    // FIXED Scroll reveal — works on GitHub Pages
-    const revealEls = document.querySelectorAll('.reveal');
+    const revealEls = document.querySelectorAll(".reveal");
 
-    // Safety fallback: show all after 600ms no matter what
     setTimeout(() => {
-      revealEls.forEach(el => el.classList.add('visible'));
-    }, 600);
+      revealEls.forEach((el) => el.classList.add("visible"));
+    }, 500);
 
-    if ('IntersectionObserver' in window) {
+    if ("IntersectionObserver" in window) {
       const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            obs.unobserve(e.target);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.04, rootMargin: '0px 0px -30px 0px' });
-      revealEls.forEach(el => obs.observe(el));
+      }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+
+      revealEls.forEach((el) => obs.observe(el));
     }
 
-    // Active nav link highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        if (window.scrollY >= section.offsetTop - 120) {
+          current = section.id;
+        }
       });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+
+      navLinks.forEach((link) => {
+        link.style.color = link.getAttribute("href") === "#" + current ? "var(--accent)" : "";
       });
     });
   </script>
