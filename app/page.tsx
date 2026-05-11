@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar'
+import ScrollProgress from '@/components/ScrollProgress'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Skills from '@/components/Skills'
@@ -11,6 +12,7 @@ import Footer from '@/components/Footer'
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />
