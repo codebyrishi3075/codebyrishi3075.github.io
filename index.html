@@ -944,7 +944,7 @@
       <h1 class="name">Rishikesh<span class="line2">Kumar</span></h1>
       <p class="hero-role">Python and <span>Django Backend Developer</span> | Kolkata, India</p>
       <p class="hero-desc">
-        Building healthcare-focused backend systems, workflow-heavy APIs, and production-ready Django services. My work currently spans authentication, bookings, diagnostics, pharmacy, wallet and payment flows, notifications, and async platform operations.
+        Built the complete backend of a production-deployed healthcare super-app — 80+ REST API endpoints, 15 Django apps, a swappable payment gateway, dual-mode wallet with immutable ledgers, multi-lab pincode routing, real-time video consultations via Agora, and a GitHub Actions CI/CD pipeline with auto-rollback.
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects</a>
@@ -954,16 +954,16 @@
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Healthcare Modules</div>
+          <div class="stat-num">80+</div>
+          <div class="stat-label">REST API Endpoints</div>
         </div>
         <div class="stat">
-          <div class="stat-num">2026</div>
-          <div class="stat-label">Current Industry Work</div>
+          <div class="stat-num">15</div>
+          <div class="stat-label">Django Apps Built</div>
         </div>
         <div class="stat">
-          <div class="stat-num">DRF</div>
-          <div class="stat-label">API First Focus</div>
+          <div class="stat-num">8</div>
+          <div class="stat-label">Third-Party Integrations</div>
         </div>
       </div>
     </div>
@@ -977,10 +977,10 @@
     </div>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>I'm a <strong>Python and Django Backend Developer</strong> based in Kolkata, India, currently working on a live healthcare platform for <strong>Famunite Health & Lifestyle Private Limited</strong>.</p>
-        <p>My work focuses on building and maintaining backend systems with <strong>Django REST Framework</strong>, role-based authentication, booking lifecycles, business validations, wallet and payment workflows, and operational APIs used across real healthcare processes.</p>
-        <p>I enjoy writing <strong>clean, maintainable backend code</strong> that supports production use cases such as patient onboarding, doctor consultations, diagnostics, medicine ordering, notifications, memberships, and admin workflows.</p>
-        <p>I am continuing to grow as a backend engineer by working on scalable architecture, async processing with Celery and Redis, real-time updates, and third-party integrations in business-critical systems.</p>
+        <p>I'm a <strong>Python and Django Backend Developer</strong> based in Kolkata, India, working as the primary backend engineer on a production-deployed healthcare super-app at <strong>Famunite Health & Lifestyle Private Limited</strong>.</p>
+        <p>I designed and built a <strong>15-app Django REST Framework backend</strong> from schema to deployment — covering doctor consultations, lab testing with multi-provider routing, medicine delivery via 1mg, physiotherapy, eye care, a dual-mode wallet, and a universal payment system across 6 service types.</p>
+        <p>On the infrastructure side I set up a <strong>GitHub Actions CI/CD pipeline</strong> with automated Django checks, SSH-based VPS deployment, database migrations, health check verification, and auto-rollback on failure. The server runs on Ubuntu with Nginx, Gunicorn ASGI, and PM2.</p>
+        <p>I work with <strong>Celery + Redis</strong> for 16 periodic tasks, <strong>Django Channels + WebSockets</strong> for real-time vitals streaming, and have integrated 8 third-party services including Razorpay, Agora RTC, Exotel, AWS S3, Firebase FCM, and Twilio.</p>
       </div>
       <div class="about-card">
         <div class="about-card-title">// personal info</div>
@@ -989,7 +989,7 @@
         <div class="info-row"><span class="info-label">Email</span><span class="info-val"><a href="mailto:codebyrishi555@gmail.com">codebyrishi555@gmail.com</a></span></div>
         <div class="info-row"><span class="info-label">Current Company</span><span class="info-val">Famunite Health & Lifestyle Pvt. Ltd.</span></div>
         <div class="info-row"><span class="info-label">Started</span><span class="info-val">March 2026</span></div>
-        <div class="info-row"><span class="info-label">Stack</span><span class="info-val">Python, Django, DRF, PostgreSQL, Celery, Redis</span></div>
+        <div class="info-row"><span class="info-label">Stack</span><span class="info-val">Python 3.13, Django 4.x, DRF, PostgreSQL, Celery, Redis, AWS S3, Agora</span></div>
         <div class="info-row"><span class="info-label">Website</span><span class="info-val"><a href="https://www.famunitehealthcare.com" target="_blank" rel="noreferrer">www.famunitehealthcare.com</a></span></div>
       </div>
     </div>
@@ -1007,10 +1007,11 @@
           <div class="skill-cat-icon">BE</div>
           <div class="skill-cat-name">Backend Core</div>
           <div class="skill-pills">
-            <span class="pill hot">Python</span>
-            <span class="pill hot">Django</span>
+            <span class="pill hot">Python 3.13</span>
+            <span class="pill hot">Django 4.x</span>
             <span class="pill hot">Django REST Framework</span>
             <span class="pill">Django Channels</span>
+            <span class="pill">Gunicorn ASGI</span>
           </div>
         </div>
         <div class="skill-cat">
@@ -1019,16 +1020,20 @@
           <div class="skill-pills">
             <span class="pill hot">REST APIs</span>
             <span class="pill hot">JWT Auth</span>
+            <span class="pill">Google OAuth 2.0</span>
             <span class="pill">OTP Verification</span>
             <span class="pill">Role-Based Access</span>
+            <span class="pill">Rate Limiting</span>
           </div>
         </div>
         <div class="skill-cat">
           <div class="skill-cat-icon">DB</div>
-          <div class="skill-cat-name">Database and Tools</div>
+          <div class="skill-cat-name">Database and Cache</div>
           <div class="skill-pills">
             <span class="pill hot">PostgreSQL</span>
-            <span class="pill">MySQL</span>
+            <span class="pill hot">Redis</span>
+            <span class="pill">django-redis</span>
+            <span class="pill">Query Optimization</span>
             <span class="pill hot2">Git and GitHub</span>
             <span class="pill">Postman</span>
           </div>
@@ -1037,30 +1042,37 @@
           <div class="skill-cat-icon">AS</div>
           <div class="skill-cat-name">Async and Realtime</div>
           <div class="skill-pills">
-            <span class="pill">Celery</span>
-            <span class="pill">Redis</span>
+            <span class="pill hot">Celery</span>
+            <span class="pill hot">Celery Beat</span>
+            <span class="pill">Redis Broker</span>
             <span class="pill">WebSockets</span>
+            <span class="pill">Agora RTC</span>
             <span class="pill">Background Jobs</span>
           </div>
         </div>
         <div class="skill-cat">
           <div class="skill-cat-icon">IN</div>
-          <div class="skill-cat-name">Integrations</div>
+          <div class="skill-cat-name">Third-Party Integrations</div>
           <div class="skill-pills">
             <span class="pill hot2">Razorpay</span>
+            <span class="pill">1mg Medicine API</span>
+            <span class="pill">Twilio SMS</span>
             <span class="pill">Firebase FCM</span>
-            <span class="pill">Google Services</span>
-            <span class="pill">Telephony Workflows</span>
+            <span class="pill">Exotel</span>
+            <span class="pill">AWS S3 / boto3</span>
+            <span class="pill">Google OAuth</span>
           </div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-icon">WK</div>
-          <div class="skill-cat-name">Workflow Areas</div>
+          <div class="skill-cat-icon">DO</div>
+          <div class="skill-cat-name">DevOps and Deployment</div>
           <div class="skill-pills">
-            <span class="pill hot">Consultations</span>
-            <span class="pill">Diagnostics</span>
-            <span class="pill">Pharmacy</span>
-            <span class="pill">Memberships</span>
+            <span class="pill hot">GitHub Actions</span>
+            <span class="pill hot">Nginx</span>
+            <span class="pill">PM2</span>
+            <span class="pill">Ubuntu VPS</span>
+            <span class="pill">CI/CD Pipeline</span>
+            <span class="pill">Auto-Rollback</span>
           </div>
         </div>
       </div>
@@ -1083,11 +1095,15 @@
           <div class="exp-date">March 2026 - Present</div>
         </div>
         <ul class="exp-list">
-          <li>Working on a modular Django and Django REST Framework healthcare backend that supports patient accounts, family profiles, doctor consultations, diagnostics, medicine ordering, memberships, wallets, and notifications.</li>
-          <li>Implemented and maintained authentication workflows using OTP verification, JWT login, Google sign-in, and role-based access control across patient, staff, technician, and admin use cases.</li>
-          <li>Contributed to booking, payment, cashback, refund, and lifecycle flows for doctor, lab, physiotherapy, eyecare, and medicine-order workflows.</li>
-          <li>Used Celery, Redis, and Channels for reminders, expiries, stock alerts, and real-time operational updates within healthcare processes.</li>
-          <li>Worked with integrations such as Razorpay, Firebase Cloud Messaging, Google services, and telephony-related workflows to support production features.</li>
+          <li>Designed and implemented the complete backend from scratch — 80+ REST API endpoints across 15 Django apps, 60+ database models, serving 7 user roles (admin, patient, doctor, center, lab technician, pharmacy, lab) on a production Ubuntu VPS.</li>
+          <li>Architected a universal Payment model covering 6 service types (doctor, lab, medicine, physio, eyecare, membership) with a swappable gateway abstraction (Razorpay), HMAC-SHA256 webhook verification, mixed wallet/gateway payment mode, and full refund pipeline with immutable audit ledgers.</li>
+          <li>Built a dual-mode unified wallet system (POINTS_MODE: admin-gifted credits; CASHBACK_MODE: earn-from-bookings percentage cashback) with runtime-configurable parameters via a single-row SystemConfiguration admin model and an append-only WalletTransaction ledger.</li>
+          <li>Designed a multi-lab aggregation layer with pincode-based provider routing (ServiceabilityZone), lab-specific test code mapping (LabTestMapping), and capacity-tracked slot management — new lab onboarding requires only admin-panel data entry, zero code changes.</li>
+          <li>Integrated 8 third-party services: Razorpay (payments + refunds), 1mg (medicine catalog + delivery webhooks), Twilio (SMS OTP), Firebase FCM (push notifications), Agora RTC (video consultations with server-side token generation), Exotel (phone masking with virtual number bridge), AWS S3 (pre-signed prescription file storage), and Google OAuth 2.0.</li>
+          <li>Engineered 16 Celery periodic tasks covering OTP cleanup, booking TTL expiry, membership lifecycle, cashback unlock on 1mg delivery, stock alerts, abandoned cart reminders, and virtual number bridge release — all non-blocking with retry logic.</li>
+          <li>Implemented real-time vitals streaming (Django Channels + Redis WebSocket layer) so center staff-collected patient vitals (height, weight, BP, SpO2) appear live on the doctor's consultation screen.</li>
+          <li>Set up the full GitHub Actions CI/CD pipeline: Python 3.13 setup, Django system checks, SSH-based VPS deployment, database migrations, PM2 restart, health check verification (15 retries), and automated rollback on failure in under 60 seconds.</li>
+          <li>Applied production security hardening: HSTS (1-year), CORS, CSRF, JWT rotation + blacklist, per-endpoint rate limits (OTP: 5/min), PROTECT constraints on Payment/Refund/WalletTransaction models, and S3 pre-signed URLs with 1-hour expiry.</li>
         </ul>
       </div>
     </div>
@@ -1103,46 +1119,46 @@
       <div class="project-card">
         <div class="project-icon">HC</div>
         <div class="project-name">Famunite Healthcare Platform Backend</div>
-        <div class="project-desc">Contributing to a production-style healthcare backend with modular Django apps for accounts, consultations, diagnostics, medicine ordering, memberships, notifications, reports, and center-assisted workflows.</div>
+        <div class="project-desc">Sole backend engineer on a production-deployed healthcare super-app. Designed 15 Django apps, 60+ models, 80+ REST API endpoints serving 7 user roles across doctor consultations, lab testing, medicine delivery, physiotherapy, eye care, wallets, payments, and memberships. Deployed on Ubuntu VPS via Nginx + Gunicorn + PM2.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">Healthcare</span>
+            <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">Production</span>
           </div>
           <a href="https://www.famunitehealthcare.com" target="_blank" rel="noreferrer" class="project-link">Visit Site</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">BK</div>
-        <div class="project-name">Consultation and Diagnostics Workflows</div>
-        <div class="project-desc">Worked on role-based booking and status-management flows for doctor consultations, lab bookings, physiotherapy, and eyecare services, including slot handling, prescriptions, reports, and operational coordination.</div>
+        <div class="project-icon">WP</div>
+        <div class="project-name">Unified Payment and Dual-Mode Wallet System</div>
+        <div class="project-desc">Architected a universal Payment model covering 6 service types with a swappable gateway abstraction (Razorpay; PayU/Stripe stubs ready). Built a dual-mode wallet: POINTS_MODE (admin-gifted credits) and CASHBACK_MODE (earn-from-bookings). Both use append-only immutable ledgers for financial compliance and full refund pipeline with destination routing (wallet / gateway / bank / cash).</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Bookings</span><span class="tag">Doctors</span><span class="tag">Lab</span><span class="tag">Reports</span>
+            <span class="tag">Razorpay</span><span class="tag">Wallet</span><span class="tag">Webhooks</span><span class="tag">Immutable Ledger</span>
           </div>
           <a href="#experience" class="project-link">See Experience</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">WP</div>
-        <div class="project-name">Wallet, Payments and Membership Logic</div>
-        <div class="project-desc">Built and supported wallet usage rules, cashback, refunds, payment ledgers, membership purchase and upgrade flows, and webhook-based Razorpay verification around real customer journeys.</div>
+        <div class="project-icon">LB</div>
+        <div class="project-name">Multi-Lab Aggregation and Async Infrastructure</div>
+        <div class="project-desc">Designed a pincode-based lab provider routing layer (ServiceabilityZone + LabTestMapping) so new labs can be onboarded via admin panel with zero code changes. Engineered 16 Celery Beat periodic tasks for OTP cleanup, booking TTL expiry, cashback unlock via 1mg delivery webhooks, stock alerts, and virtual number bridge release — all with retry logic and Celery Beat scheduling.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Wallet</span><span class="tag">Payments</span><span class="tag">Razorpay</span><span class="tag">Memberships</span>
+            <span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">1mg API</span><span class="tag">Multi-Provider</span>
           </div>
-          <a href="#contact" class="project-link">Contact Me</a>
+          <a href="#experience" class="project-link">See Experience</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">RT</div>
-        <div class="project-name">Notifications, Realtime and Operations Support</div>
-        <div class="project-desc">Supported async and operational healthcare workflows using Celery, Redis, Django Channels, FCM, admin tooling, report handling, stock alerts, and real-time queue-oriented updates.</div>
+        <div class="project-icon">CI</div>
+        <div class="project-name">CI/CD Pipeline and Real-Time Consultations</div>
+        <div class="project-desc">Set up a full GitHub Actions CI/CD pipeline: Django system checks, SSH-based VPS deployment, migrations, health check verification (15 retries), and auto-rollback on failure. Integrated Agora RTC for server-side video token generation and built a Django Channels + Redis WebSocket layer streaming patient vitals (BP, SpO2, temp) live to the consulting doctor. Phone masking via Exotel virtual number bridges with 6-hour TTL and webhook callbacks.</div>
         <div class="project-footer">
           <div class="project-tags">
-            <span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Channels</span><span class="tag">FCM</span>
+            <span class="tag">GitHub Actions</span><span class="tag">Agora RTC</span><span class="tag">WebSockets</span><span class="tag">Exotel</span>
           </div>
           <a href="https://github.com/codebyrishi3075" target="_blank" rel="noreferrer" class="project-link">GitHub</a>
         </div>
