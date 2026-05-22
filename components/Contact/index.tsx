@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
@@ -99,9 +99,50 @@ export default function Contact() {
     <section
       id="contact"
       className="section-padding"
-      style={{ background: 'var(--surface)' }}
+      style={{ background: 'var(--surface)', position: 'relative', overflow: 'hidden' }}
     >
-      <div className="max-w-5xl mx-auto">
+      {/* Subtle dot grid overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(circle, rgba(0,217,255,0.07) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      {/* Top glow orb */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '-10%',
+          right: '5%',
+          width: 400,
+          height: 400,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      {/* Bottom glow orb */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-10%',
+          left: '5%',
+          width: 350,
+          height: 350,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(0,217,255,0.06) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div className="max-w-5xl mx-auto" style={{ position: 'relative', zIndex: 1 }}>
         {/* Header */}
         <motion.div
           variants={fadeUp}
@@ -132,7 +173,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Social links */}
           <motion.div
             variants={fadeUp}
@@ -224,6 +265,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <div>
                   <input
+                    suppressHydrationWarning
                     {...register('name', { required: 'Name is required' })}
                     placeholder="Your Name"
                     style={inputStyle}
@@ -239,6 +281,7 @@ export default function Contact() {
 
                 <div>
                   <input
+                    suppressHydrationWarning
                     {...register('email', {
                       required: 'Email is required',
                       pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email' },
@@ -258,6 +301,7 @@ export default function Contact() {
 
                 <div>
                   <textarea
+                    suppressHydrationWarning
                     {...register('message', { required: 'Message is required', minLength: { value: 10, message: 'At least 10 characters' } })}
                     placeholder="Your Message"
                     rows={5}
@@ -290,7 +334,7 @@ export default function Contact() {
                   }}
                 >
                   <Send size={15} />
-                  {isSubmitting ? 'Sendingâ€¦' : 'Send Message'}
+                  {isSubmitting ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             )}

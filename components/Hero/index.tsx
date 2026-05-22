@@ -66,8 +66,8 @@ export default function Hero() {
       />
 
       {/* Main content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 md:py-0">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-0">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16">
 
           {/* ── LEFT — Text ── */}
           <div className="flex-1 text-center md:text-left">
@@ -130,7 +130,7 @@ export default function Hero() {
             </motion.h2>
 
             {/* Code snippet decoration */}
-            <motion.div {...fadeUp(0.5)} className="code-block inline-block mb-7 text-left">
+            <motion.div {...fadeUp(0.5)} className="code-block inline-block mb-7 text-left w-full max-w-xs sm:max-w-sm">
               <div className="code-bar">
                 <span className="dot" style={{ background: '#FF5F57' }} />
                 <span className="dot" style={{ background: '#FFBD2E' }} />
@@ -181,13 +181,14 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shine"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shine"
                 style={{
                   background: 'linear-gradient(135deg, var(--cyan), var(--blue-accent))',
-                  color: '#0A0F1C',
+                  color: '#080D1A',
                   fontFamily: 'var(--font-dm-sans)',
-                  minHeight: '44px',
-                  boxShadow: '0 4px 20px rgba(0,217,255,0.25)',
+                  minHeight: '48px',
+                  minWidth: '140px',
+                  boxShadow: '0 4px 20px rgba(0,212,255,0.25)',
                 }}
               >
                 <FolderOpen size={15} />
@@ -197,12 +198,13 @@ export default function Hero() {
               <a
                 href="/RishikeshKumarCV.pdf"
                 download="Rishikesh_Kumar_CV.pdf"
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300"
                 style={{
                   border: '1px solid var(--cyan)',
                   color: 'var(--cyan)',
                   fontFamily: 'var(--font-dm-sans)',
-                  minHeight: '44px',
+                  minHeight: '48px',
+                  minWidth: '140px',
                 }}
                 onMouseEnter={(e) => {
                   ;(e.currentTarget as HTMLElement).style.background = 'rgba(0,217,255,0.08)'
@@ -219,12 +221,13 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300"
                 style={{
                   border: '1px solid rgba(255,255,255,0.1)',
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-dm-sans)',
-                  minHeight: '44px',
+                  minHeight: '48px',
+                  minWidth: '130px',
                 }}
                 onMouseEnter={(e) => {
                   ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)'
@@ -246,9 +249,9 @@ export default function Hero() {
             {...fadeRight(0.3)}
             className="relative flex-shrink-0 flex items-center justify-center"
           >
-            {/* Floating badge — top left */}
+            {/* Floating badge — top left (hidden on small phones) */}
             <div
-              className="float-badge z-20"
+              className="float-badge z-20 hidden sm:flex"
               style={{
                 top: '2%',
                 left: '-10%',
@@ -260,9 +263,9 @@ export default function Hero() {
               <span style={{ color: 'var(--text-primary)' }}>Python 3.13</span>
             </div>
 
-            {/* Floating badge — bottom right */}
+            {/* Floating badge — bottom right (hidden on small phones) */}
             <div
-              className="float-badge z-20"
+              className="float-badge z-20 hidden sm:flex"
               style={{
                 bottom: '4%',
                 right: '-8%',
@@ -274,9 +277,9 @@ export default function Hero() {
               <span style={{ color: 'var(--text-primary)' }}>Production Ready</span>
             </div>
 
-            {/* Floating badge — top right */}
+            {/* Floating badge — top right (hidden on small phones) */}
             <div
-              className="float-badge z-20"
+              className="float-badge z-20 hidden sm:flex"
               style={{
                 top: '18%',
                 right: '-12%',
@@ -298,12 +301,18 @@ export default function Hero() {
               }}
             />
 
-            {/* Photo ring wrapper */}
-            <div className="profile-ring z-10" style={{ width: 280, height: 280 }}>
+            {/* Photo ring wrapper — responsive sizes */}
+            <div
+              className="profile-ring z-10"
+              style={{
+                width: 'clamp(200px, 38vw, 280px)',
+                height: 'clamp(200px, 38vw, 280px)',
+              }}
+            >
               <div
                 style={{
-                  width: 272,
-                  height: 272,
+                  width: 'calc(clamp(200px, 38vw, 280px) - 8px)',
+                  height: 'calc(clamp(200px, 38vw, 280px) - 8px)',
                   borderRadius: '50%',
                   overflow: 'hidden',
                   background: 'var(--surface)',

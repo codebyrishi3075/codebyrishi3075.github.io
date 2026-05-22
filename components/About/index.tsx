@@ -55,7 +55,7 @@ export default function About() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[340px_1fr] gap-12 items-start">
+        <div className="grid lg:grid-cols-[320px_1fr] gap-10 lg:gap-14 items-start">
 
           {/* ── LEFT — Photo card ── */}
           <motion.div
@@ -67,8 +67,9 @@ export default function About() {
           >
             {/* Photo */}
             <div
-              className="relative w-full max-w-[280px] rounded-2xl overflow-hidden mb-5 shine"
+              className="relative w-full mx-auto rounded-2xl overflow-hidden mb-5 shine"
               style={{
+                maxWidth: 'clamp(200px, 70vw, 280px)',
                 aspectRatio: '3/4',
                 border: '1px solid rgba(0,217,255,0.2)',
                 boxShadow: '0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,217,255,0.08)',

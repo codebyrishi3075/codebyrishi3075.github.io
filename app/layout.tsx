@@ -50,7 +50,7 @@ export default function RootLayout({
       className={`${syne.variable} ${dmSans.variable}`}
       style={{ scrollBehavior: "smooth" }}
     >
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
